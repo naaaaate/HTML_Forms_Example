@@ -1,0 +1,252 @@
+<!--
+Forms:
+-server side languages can process submitted data from form.
+-attributes:
+  -action - this is where u are submitting info in form.. its the web address of a program that processes the information submitted via the form.
+  -method - post or get  --the method attr is the http method the browser uses to submit the form.
+                          --post - will send data from body of form to server
+                          --get - data is sent inside the url and parameters are separated w ? mark
+
+------------------------------------------------------------------------------------------------
+form elements: Input element
+-input - most comon used element;
+<form action="index.html" method="post">
+
+        <h1>Sign Up</h1>
+
+        <input type="text" id="name" name="user_name">
+
+---input type -what kind of input we want.. its a text box..
+---id - not required but good to add to target elements w css or js..
+      -also need id to associate labels w specific form controls..
+---name - needed so when form is submitted to server side code, the server can understand the form data and process the values apporpriately..
+
+
+        <input type="email" id="mail" name="user_email">
+        <input type="password" id="password" name="user_password">
+
+
+</form>
+
+------------------------------------------------------------------------------------------------
+text area element:;
+-needed to tyope a message or bio
+
+<textarea id="bio" name="user_bio"></textarea>
+
+---can be resized etc..
+---not self closing like input.
+
+
+------------------------------------------------------------------------------------------------
+Submit Button:;
+-user should be able to fill form , click submit and send data to webserver via the action and method attributes we specified in the form element.
+
+
+<button type="submit"> Sign Up </button>
+
+---also have type reset which clears everything in form
+---and type button w no default behavior.. used for js combo
+
+------------------------------------------------------------------------------------------------
+Label elements:
+-
+<label for="name">Name:</label>
+<input type="text" id="name" name="user_name">
+
+---the for points to the id "name" below it.. now when u click on label that field w id=name will get the cursor focus.. without it, it wont get focus when u click .
+
+-add lables for email and password and bio fields.
+
+------------------------------------------------------------------------------------------------
+Fieldset element:
+-certain form controls belong together in logical grouping.
+-we want to visually group things together in a form.
+-lets wrap form controls in fieldset elements.
+
+<fieldset>
+
+          <legend><span class="number">1</span> Your basic info</legend>
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name">
+
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email">
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+
+          <label>Age:</label>
+          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or Older</label>
+
+</fieldset>
+<fieldset>
+
+          <legend><span class="number">2</span> Your profile</legend>
+
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="user_bio"></textarea>
+
+
+</fieldset>
+
+--we can label these 2 fieldsets using legend
+  <legend><span class="number">2</span> Your profile</legend>
+so these legends will lable ur fieldsets..
+
+------------------------------------------------------------------------------------------------
+Select Menu:
+-Select is like dropdown.. and has option elements..
+--so... select - option
+  <select id="" name="">
+    <option value=""></option>
+  </select>
+---the option value attribute is what is submitted to server when selected.. for inputs the value is whatever u type in.
+
+
+Optgroup element:
+-can organize your dropdown menu into groups..
+
+<optgroup label="Web">
+              <option value="frontend_developer">Front-End Developer</option>
+              <option value="php_developer">PHP Developer</option>
+              <option value="python_developer">Python Developer</option>
+              <option value="rails_developer">Rails Developer</option>
+              <option value="web_designer">Web Designer</option>
+              <option value="wordpress_developer">WordPress Developer</option>
+            </optgroup>
+            <optgroup label="Mobile">
+              <option value="android_developer">Android Developer</option>
+              <option value="ios_developer">iOS Developer</option>
+              <option value="mobile_designer">Mobile Designer</option>
+            </optgroup>
+            <optgroup label="Business">
+              <option value="business_owner">Business Owner</option>
+              <option value="freelancer">Freelancer</option>
+            </optgroup>
+</select>
+
+---the optgroup has a label attribute that will show up.. and you are grouping your options in the dropdown select menu.
+
+------------------------------------------------------------------------------------------------
+Radio BUttons:
+-only choose one..
+
+<label>Age:</label>
+          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or Older</label>
+
+          ---notice type is radio
+          ---notice we have radio button w id and value ... that corresponds to a label.
+          ---they are grouped together bc they have the same name attribute!!! part of same group.
+
+
+------------------------------------------------------------------------------------------------
+Checkboxes:
+-can choose many options..
+
+<label>Interests:</label>
+          <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+          <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
+          <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
+
+          ---notice type is checkbox
+          ---has id to match the label for focus. ..value for server .. name for grouping.
+          ---so input: type, id, value, name
+            -- label: class, for
+
+
+
+
+
+
+
+ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+      <form action="index.html" method="post">
+
+        <h1>Sign Up</h1>
+
+        <fieldset>
+
+          <legend><span class="number">1</span> Your basic info</legend>
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name">
+
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email">
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+
+          <label>Age:</label>
+          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or Older</label>
+
+        </fieldset>
+
+        <fieldset>
+
+          <legend><span class="number">2</span> Your profile</legend>
+
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="user_bio"></textarea>
+
+          <label for="job">Job role:</label>
+          <select id="job" name="user_job">
+            <optgroup label="Web">
+              <option value="frontend_developer">Front-End Developer</option>
+              <option value="php_developer">PHP Developer</option>
+              <option value="python_developer">Python Developer</option>
+              <option value="rails_developer">Rails Developer</option>
+              <option value="web_designer">Web Designer</option>
+              <option value="wordpress_developer">WordPress Developer</option>
+            </optgroup>
+            <optgroup label="Mobile">
+              <option value="android_developer">Android Developer</option>
+              <option value="ios_developer">iOS Developer</option>
+              <option value="mobile_designer">Mobile Designer</option>
+            </optgroup>
+            <optgroup label="Business">
+              <option value="business_owner">Business Owner</option>
+              <option value="freelancer">Freelancer</option>
+            </optgroup>
+          </select>
+
+          <label>Interests:</label>
+          <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+          <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
+          <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
+
+        </fieldset>
+
+        <button type="submit">Sign Up</button>
+
+      </form>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
